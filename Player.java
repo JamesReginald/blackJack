@@ -1,8 +1,47 @@
+
+
 class Player{
-    private String name;
+   //  private String name;
+    int Money = 100;
+    int smallBet = 5;
+    int bigBet = 25;
     Card[] hand = new Card[2];
     private int score = 0;
 
+   //  public void setName(){
+   //    try{
+   //       Scanner sc = new Scanner(System.in);
+   //       name = sc.nextLine();        
+   //       System.out.println(name);
+   //       sc.close();
+   //   }   catch(Exception ex){
+   //       ex.printStackTrace();
+   //   }
+   // }
+   
+   void SmallBet(int m){
+      if(m >= smallBet){
+         m = m - smallBet;
+      } 
+   }
+
+   void BigBet(int m){
+      if(m >= bigBet){
+         m = m - bigBet;
+      }
+   }
+
+
+   void placeBet(int m, int bet){
+      System.out.println("in bet" + bet);
+      switch(bet){
+         case 0:
+         break;
+         case 1: SmallBet(m);
+         break;
+         case 2: BigBet(m);
+         break;}
+   }
     public void pickFirstCard(Card c){
        hand[0] = c;
     }
@@ -20,7 +59,7 @@ class Player{
        return score;
     }
 
-    public void setName(String n){
-        name = n;
-    }
+   //  public void setName(String n){
+   //      name = n;
+   //  }
 }

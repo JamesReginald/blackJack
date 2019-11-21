@@ -1,26 +1,17 @@
 import java.util.ArrayList;
-import java.util.Random;
-
+import java.util.Scanner;
+ 
 class BlackJack{
+    static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
-        int numOfPlayers;
-        System.out.println("Ho many players do we have?");
-        
-
-        try{
-            Scanner sc = new Scanner(System.in);
-            numOfPlayers = Integer.parseInt(sc);
-            System.out.println(numOfPlayers);
-
-        } catch(Exception ex){
-            ex.printStackTrace();
-        }
-
-    
-
-
         Deck deck = new Deck();
         ArrayList<Card> d = deck.createDeck();
+        GroupPlayer group = new GroupPlayer();
+        User user = new User();
+        group.setGroupSize();
+        user.turnUser();
+        System.out.println(user.Money);
+        
 
         Card c_1 = deck.getRandomCard(d);
         Card c_2 = deck.getRandomCard(d);
@@ -67,4 +58,5 @@ class BlackJack{
         }     
                 
             }
+    
         }
