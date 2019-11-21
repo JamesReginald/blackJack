@@ -15,10 +15,12 @@ public class Deck {
                 
                 Card card = new Card();
                 card.setCard(typeList[j], faceList[i], valueList[i]);
-             
+                System.out.print(card.type +"-"+ card.face +" ");
+                
                cardDeck.add(card);
             }
         };
+       
         return cardDeck;
     }
 
@@ -28,5 +30,6 @@ public class Deck {
         d.remove(index);
         return yourCard;
     }
+
 }
 

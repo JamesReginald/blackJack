@@ -11,14 +11,14 @@ class GroupPlayer {
         return groupIsSize;
     }
         
-    public int setGroupSize(){
+    public ArrayList<Player>  setGroupSize(){
 
         try{
             while(!groupIsSize){
             
             System.out.println("How many players do we have?");
             numOfPlayers = BlackJack.sc.nextInt();
-            compileGroup(numOfPlayers);        
+            group = compileGroup(numOfPlayers);        
             groupIsSize = true;
             }
             
@@ -28,17 +28,23 @@ class GroupPlayer {
             System.out.println("Try again but now do it right");
         } 
         
-        return numOfPlayers;
+        return group;
     }
 
     public ArrayList<Player> compileGroup(int n){
+        System.out.println("");
         for (int i =0; i < n; i++){
 
             if(i == 0){
+                
                 User user = new User();
+                user.setName("U");
+                System.out.print(user.getName());
                 group.add(user);
             } else{
                 SimUser simUser = new SimUser();
+                simUser.setName("Player " + i);
+                System.out.print(" vs " + simUser.getName());
                 group.add(simUser);
             }
         }

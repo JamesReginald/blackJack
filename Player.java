@@ -1,24 +1,21 @@
 
+import java.util.ArrayList;
 
 class Player{
-   //  private String name;
+   private String name;
     int Money = 100;
     int smallBet = 5;
     int bigBet = 25;
-    Card[] hand = new Card[2];
+    ArrayList<Card> hand = new ArrayList<>();
     private int score = 0;
 
-   //  public void setName(){
-   //    try{
-   //       Scanner sc = new Scanner(System.in);
-   //       name = sc.nextLine();        
-   //       System.out.println(name);
-   //       sc.close();
-   //   }   catch(Exception ex){
-   //       ex.printStackTrace();
-   //   }
-   // }
-   
+    public int setScore(ArrayList<Card> hand){
+      for (int i = 0; i < hand.size(); i++){
+         score = score + hand.get(i).value;
+      }
+       return score;
+    }
+
    void SmallBet(int m){
       if(m >= smallBet){
          m = m - smallBet;
@@ -29,6 +26,10 @@ class Player{
       if(m >= bigBet){
          m = m - bigBet;
       }
+   }
+
+   void getCard(Card c){
+      hand.add(c);
    }
 
 
@@ -42,24 +43,13 @@ class Player{
          case 2: BigBet(m);
          break;}
    }
-    public void pickFirstCard(Card c){
-       hand[0] = c;
-    }
+  
+   
 
-    public void showFirstCard(String n){
-       System.out.println("hé " + n +"!, your hand is: "+hand[0].type + hand[0].face +" "+ hand[1].type + hand[1].face);
+    public String getName(){
+       return name;
     }
-
-    public void pickSecondCard(Card c){
-       hand[1] = c;
+    public void setName(String n){
+        name = n;
     }
-
-    public int getScore(Card[] c){
-       score = c[0].value + c[1].value; 
-       return score;
-    }
-
-   //  public void setName(String n){
-   //      name = n;
-   //  }
 }
