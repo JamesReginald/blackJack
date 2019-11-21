@@ -9,10 +9,8 @@ class Player{
     ArrayList<Card> hand = new ArrayList<>();
     private int score = 0;
 
-    public int setScore(ArrayList<Card> hand){
-      for (int i = 0; i < hand.size(); i++){
-         score = score + hand.get(i).value;
-      }
+    public int setScore(int s){
+      score = s;
        return score;
     }
 

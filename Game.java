@@ -5,6 +5,7 @@ class Game{
 ArrayList<Integer> currentscore;
 Card currentCard;
 
+
     public void gameStart(ArrayList<Card> cardDeck, ArrayList<Player> players, Deck deck){
         
         System.out.println("");
@@ -23,17 +24,15 @@ Card currentCard;
        }
 
     }
-void checkWin(ArrayList<Player> players, ArrayList<Card> hand){
-    for (int i =0 ;i < players.size(); i++){
-        int score = players.get(i).setScore(hand);
-        currentscore.add(score);
-        try{
-            Collection.max(currentscore);
-        }
+// void checkWin(int s){
+//     for (int i =0 ;i < players.size(); i++){
+        
+//         currentscore.add(score);
+//         System.out.print(currentscore.addAll(currentscore));
 
-    }
+//     }
 
-}
+// }
     public void dealCards(ArrayList<Card> cardDeck, ArrayList<Player> players, Deck deck){
         System.out.println("");
        for (int i = 0; i <players.size(); i++ ){
@@ -43,17 +42,20 @@ void checkWin(ArrayList<Player> players, ArrayList<Card> hand){
         players.get(i).getCard(card);
         if(i==0){
             System.out.println(name +" have: ");
-            nextCard(player.hand);
+            nextCard(player.hand, players);
             continue;
         }
         System.out.println(name +" has : ");
-        nextCard(player.hand);
+        nextCard(player.hand, players );
        }
     }
-    public Card nextCard(ArrayList<Card> hand){
+    public Card nextCard(ArrayList<Card> hand, ArrayList<Player> players){
         for (int i =0 ; i < hand.size(); i++){
         currentCard = hand.get(i);
-       System.out.println(currentCard.type +"-"+ currentCard.face); 
+        int score = players.get(i).setScore(currentCard.value);
+            System.out.println(currentCard.type +"-"+ currentCard.face);
+            System.out.println("score = "+score);
+       
         }
         return currentCard;
     }
